@@ -6,12 +6,18 @@ const Users = client.db('Kalender').collection('users');
 const postUser = (app) => {
     app.post('/users', async (req, res) => {
         try {
-            const user = req.body;
-            const result = await Users.insertOne(user);
-            res.send({
-                success: true,
-                message: "User posted"
-            })
+            const query = { email: req.query.email }
+            const findUser = await Users.findOne(query);
+            if (findUser) {
+                res.send("no need to register again");
+            }
+            else {
+                const result = await Users.insertOne(req.body)
+                res.send({
+                    success: true,
+                    message: "User posted"
+                })
+            }
         } catch (error) {
             res.send({
                 success: false,
@@ -41,4 +47,29 @@ const getUsers = (app) => {
     })
 }
 
-module.exports = { Users, postUser, getUsers }
+//updateUsers
+const updateUser = (app) => {
+    app.put("/users", async (req, res) => {
+        try {
+            const query = { email: req.query.email }
+            const findUser = await Users.findOne(query);
+            if (findUser) {
+                res.send("no need to register again");
+            }
+            else {
+                const res = await Users.insertOne(req.body)
+                res.send({
+                    success: true,
+                    message: "User posted"
+                })
+            }
+        } catch (error) {
+            res.send({
+                success: false,
+                message: error.message
+            })
+        }
+    })
+}
+
+module.exports = { Users, postUser, getUsers, updateUser }
