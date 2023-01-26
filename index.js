@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { dbConnect } = require('./Config/dbConnent');
-const { postUser, getUsers } = require('./API/users/users');
+const { postUser, getUsers, updateUser } = require('./API/users/users');
 
 
 const port = process.env.PORT || 5000;
@@ -20,6 +20,9 @@ postUser(app)
 
 //get users 
 getUsers(app)
+
+//update User
+updateUser(app)
 
 app.get("/", async (req, res) => {
     res.send("Kalender server is running");
