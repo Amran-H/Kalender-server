@@ -6,11 +6,11 @@ const { postUser, getUsers, updateUser } = require("./API/users/users");
 const {
   singleSchedulePost,
   singleScheduleGet,
-} = require("../Team-project-main/Kalender-server-main/API/scedule/schedule");
+} = require("./API/schedule/schedule");
 const {
   multiSchedulePost,
   multiScheduleGet,
-} = require("../Team-project-main/Kalender-server-main/API/scedule/multiSchedule");
+} = require("./API/schedule/multiSchedule");
 
 const port = process.env.PORT || 5000;
 
