@@ -1,7 +1,6 @@
 {
   "name": "kalender-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,10 +11,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mongodb": "^4.13.0"
-  }
+    "mongodb": "^4.13.0",
+    "nodemailer": "^6.9.0",
+    "nodemailer-mailgun-transport": "^2.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amran-H/Kalender-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Amran-H/Kalender-server/issues"
+  },
+  "homepage": "https://github.com/Amran-H/Kalender-server#readme",
+  "description": ""
 }
