@@ -1,7 +1,7 @@
 const { client } = require("../../Config/dbConnent");
 
 //schedule collection
-const multiSchedule = client.db("Kalender").collection("multiSchedule");
+const multiSchedule = client.db("Kalender").collection("MultiSchedule");
 
 // multi schedule post
 const multiSchedulePost = (app) => {
@@ -26,5 +26,15 @@ const multiScheduleGet = (app) => {
     }
   });
 };
+const CompleteScheduleGet = (app) => {
+  app.get("/complete-schedule", async (req, res) => {
+    try {
+      const query = {};
+      const result = await multiSchedule.find(query).toArray();
+      res.send(result);
+    } finally {
+    }
+  });
+};
 
-module.exports = { multiSchedulePost, multiScheduleGet };
+module.exports = { multiSchedulePost, CompleteScheduleGet, multiScheduleGet };

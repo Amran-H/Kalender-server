@@ -10,7 +10,12 @@ const {
 const {
   multiSchedulePost,
   multiScheduleGet,
+  CompleteScheduleGet,
 } = require("./API/schedule/multiSchedule");
+const {
+  deleteShedeule,
+  deleteMultiSchedule,
+} = require("./API/MyAccount/MyAccount");
 
 const port = process.env.PORT || 5000;
 
@@ -39,10 +44,15 @@ singleScheduleGet(app);
 
 // multi Schedule Post
 multiSchedulePost(app);
-
+//completeSchedule
+CompleteScheduleGet(app);
 // multi Schedule Post
 multiScheduleGet(app);
 
+//deleteSchedule
+deleteShedeule(app);
+//deletemultischedule
+deleteMultiSchedule(app);
 app.get("/", async (req, res) => {
   res.send("Kalender server is running");
 });
