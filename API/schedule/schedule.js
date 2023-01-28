@@ -9,15 +9,7 @@ const singleSchedulePost = (app) => {
     try {
       const booking = req.body;
 
-      const query = {
-        date: booking.date,
-        time: booking.time,
-        email: booking.email,
-      };
-
       const result = await Schedule.insertOne(booking);
-      // schedule confirmation email
-      // sendBookingEmail(booking);
 
       res.send(result);
     } finally {
