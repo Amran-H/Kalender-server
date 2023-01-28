@@ -6,24 +6,18 @@ const multiSchedule = client.db("Kalender").collection("MultiSchedule");
 // multi schedule post
 const multiSchedulePost = (app) => {
   app.post("/multi-schedule", async (req, res) => {
-    try {
-      const schedule = req.body;
-      const result = await multiSchedule.insertOne(schedule);
-      res.send(result);
-    } finally {
-    }
+    const schedule = req.body;
+    const result = await multiSchedule.insertOne(schedule);
+    res.send(result);
   });
 };
 
 // single schedule get
 const multiScheduleGet = (app) => {
   app.get("/multi-schedule", async (req, res) => {
-    try {
-      const query = {};
-      const result = await multiSchedule.find(query).toArray();
-      res.send(result);
-    } finally {
-    }
+    const query = {};
+    const result = await multiSchedule.find(query).toArray();
+    res.send(result);
   });
 };
 const CompleteScheduleGet = (app) => {
