@@ -33,7 +33,7 @@ const sendBookingEmail = (booking) => {
     port: 465,
     auth: {
       user: "mdsharifhosen73@gmail.com",
-      pass: "nylnzkmadcgkvyhk",
+      pass: process.env.Email_SEND_PASS,
     },
     tls: {
       secureConnection: false,
