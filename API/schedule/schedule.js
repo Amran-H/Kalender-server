@@ -22,11 +22,7 @@ const singleSchedulePost = (app) => {
       date,
       time,
     } = booking;
-    console.log("hostEmail", hostEmail);
-    console.log("hostEmail", meetingCategory);
-    console.log("hostEmail", meetingDescription);
-    console.log("hostEmail", date);
-    console.log("hostEmail", time);
+
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -41,7 +37,7 @@ const singleSchedulePost = (app) => {
       subject: `Your Meeting Schedule is ${meetingCategory}`,
       html: `
       <div>
-      <h5>Your Meeting Schedule is ${meetingCategory} on the ${date} at ${time}</h5>
+      <h3>Your Meeting Schedule is ${meetingCategory} on the ${date} at ${time}</h3>
       <P><bold>Invitee Email:</bold> ${hostEmail}</P>
       <p>${meetingDescription}</p>
       <span>Thanks from Kalerdar</span>
