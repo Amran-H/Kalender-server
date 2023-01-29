@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const { dbConnect } = require("./Config/dbConnent");
 const { postUser, getUsers, updateUser } = require("./API/users/users");
+
 const {
   singleSchedulePost,
   singleScheduleGet,
